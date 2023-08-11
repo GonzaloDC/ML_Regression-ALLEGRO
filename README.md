@@ -12,7 +12,7 @@ Proyecto de machine learning usando diferentes modelos de regresión para predec
 
 ## Introducción
 
-EL siguiente proyecto tiene como objetivo predecir el precio de un determinado ordenador portátil en función de sus características. La idea principal es utilizar diferentes modelos de machine learning y utilizar las métricas MSE (error absoluto medio) y el coeficiente de derminación \( R^2 \). Como valores de entrada, se han proporcionado tres archivos .json.
+EL siguiente proyecto tiene como objetivo predecir el precio de un determinado ordenador portátil en función de sus características. La idea principal es utilizar diferentes modelos de machine learning y utilizar las métricas MSE (error absoluto medio) y el coeficiente de derminación R². Como valores de entrada, se han proporcionado tres archivos .json.
 
 ## Estructura
 
@@ -22,7 +22,7 @@ Se puede dividir el proyecto en dos partes diferenciadas. La primera son los not
 Dentro de la primera parte, los notebooks, se tienen dos archivos .ipynb:
 
 - data_clean: En esta primera parte se unen los diferentes archivos, se eliminan nulos, se codifican los valores categóricos y se escalan los valores para su uso posterior.
-- models: En este notebook se divide el dataframe obtenido en el notebook anterior para su entrenamiento y test, y se prueban los algoritmos Random Forest y linear regression. Se calculan las métricas MAE y \( R^2 \) y se hace una grafica comparando los valores reales con los predichos por el modelo.
+- models: En este notebook se divide el dataframe obtenido en el notebook anterior para su entrenamiento y test, y se prueban los algoritmos Random Forest y linear regression. Se calculan las métricas MAE y R² y se hace una grafica comparando los valores reales con los predichos por el modelo.
 
 #### Segunda parte. Automatización.
 
@@ -42,7 +42,7 @@ En el notebook models, se han probado dos modelos distintos, RandomForest y line
 
 Y las métricas obtenidas: 
 
-| Algoritmo             | MAE     | MSE   | \( R^2 \) |
+| Algoritmo             | MAE     | MSE   | R² |
 |-----------------------|---------|-------|-----------|
 | RandomForest          | 245.33  | 187616.38|0.9357     |
 
