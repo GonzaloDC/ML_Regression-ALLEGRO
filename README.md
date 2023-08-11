@@ -17,10 +17,13 @@ EL siguiente proyecto tiene como objetivo predecir el precio de un determinado o
 
 Se puede dividir el proyecto en dos partes diferenciadas. La primera son los notebooks, donde se fusionan los archivos .json y se procede a su limpieza para el posterior uso de los modelos. La segunda parte, y pensando en la posibilidad de incluir el proyecto en una app o para integraciones continuas, se ha automatizado el proceso de ingesta y entrenamiento de datos, para poder hacer uso del mejor modelo ya entrenado, para predecir valores futuros. 
 
+#### Primera parte. Notebooks.
 Dentro de la primera parte, los notebooks, se tienen dos archivos .ipynb:
 
 - data_clean: En esta primera parte se unen los diferentes archivos, se eliminan nulos, se codifican los valores categóricos y se escalan los valores para su uso posterior.
 - models: En este notebook se divide el dataframe obtenido en el notebook anterior para su entrenamiento y test, y se prueban los algoritmos Random Forest y linear regression. Se calculan las métricas MAE y \( R^2 \) y se hace una grafica comparando los valores reales con los predichos por el modelo.
+
+#### Segunda parte. Automatización.
 
 En la segunda parte, se ha seguido una estructura que permita automatizar el proceso de ingestión y entrenamiento de datos, nos permite usar un modelo, y se define un pipeline para poder utilizar nuevos datos sobre el modelo guardado. Todos los scripts se definen dentro de la carpeta **src**. La estructura es como sigue:
 
