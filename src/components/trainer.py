@@ -11,7 +11,6 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.tree import DecisionTreeRegressor
-#from xgboost import XGBRegressor
 from catboost import CatBoostRegressor
 from sklearn.ensemble import (
     AdaBoostRegressor,
@@ -44,19 +43,12 @@ class ModelTrainer():
             y_train=train['buynow_price'] 
             y_test=test['buynow_price'] 
 
-            # X_train,X_test,y_train,y_test=(
-            #     train[:,:,-1],
-            #     test[:,:,-1],
-            #     train[:,-1],
-            #     test[:,-1]
-            # )
 
             models={
                 "Random Forest": RandomForestRegressor(),
                 "Decision Tree": DecisionTreeRegressor(),
                 "Gradient Boosting": GradientBoostingRegressor(),
                 "Linear Regression": LinearRegression(),
-                #"XGBRegressor": XGBRegressor(),
                 "CatBoosting Regressor": CatBoostRegressor(verbose=False),
                 "AdaBoost Regressor": AdaBoostRegressor(),
             }
@@ -102,10 +94,9 @@ class ModelTrainer():
 
             model_report:dict=evaluate_models(X_train=X_train,y_train=y_train,X_test=X_test,y_test=y_test,
                                                 models=models,params=params)
+            
             ## To get best model score from dict
             best_model_score = max(sorted(model_report.values()))
-
-            ## To get best model name from dict
 
             best_model_name = list(model_report.keys())[
                 list(model_report.values()).index(best_model_score)
@@ -122,9 +113,11 @@ class ModelTrainer():
 
             predicted=best_model.predict(X_test)
 
-            r2_square = r2_score(y_test, predicted)
-            return r2_square
-        
+            mse = mean_squared_error(y_test, predicted)
+            mae = mean_absolute_error(y_test, predicted)
+            r2 = r2_score(y_test, predicted)
+
+            return best_model_name,mse,mae,r2
 
         except Exception as e:
             raise CustomException(e,sys)

@@ -11,14 +11,15 @@ from sklearn.model_selection import GridSearchCV
 
 
 def load_data(path):
+    try:
+        df_name='clean_dataset_completo.csv'
+        df_path:str=os.path.join(path,df_name)
+        
+        df=pd.read_csv(df_path)
 
-    df_name='clean_dataset_completo.csv'
-    df_path:str=os.path.join(path,df_name)
-    
-    
-    df=pd.read_csv(df_path)
-
-    return df
+        return df
+    except Exception as e:
+        raise CustomException(e,sys)
 
 
 def evaluate_models(X_train,y_train,X_test,y_test,models,params):
@@ -63,6 +64,15 @@ def save_object(file_path, obj):
 
     except Exception as e:
         raise CustomException(e, sys)
+    
+
+def load_model(path):
+    try:
+        with open(path,'rb') as file:
+            return pickle.load(file)
+    except Exception as e:
+        raise CustomException(e,sys)
+
 
 
 
