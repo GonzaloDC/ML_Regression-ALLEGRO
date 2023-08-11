@@ -8,6 +8,7 @@ Proyecto de machine learning usando diferentes modelos de regresión para predec
 
 1. [Introducción](#introducción)
 2. [Estructura](#estructura)
+3. [Resultados](#resultados)
 
 ## Introducción
 
@@ -31,5 +32,18 @@ En la segunda parte, se ha seguido una estructura que permita automatizar el pro
 - /pipeline: En esta carpeta se definen los scripts que contienen los pipelines para ingesta y entrenamiento del modelo (train_pipeline.py) y para la predicción de nuevos datos (predict_pipeline.py)
 - exception.py: Se define un custom exception que nos indica en qué archivo hay un error, número de línea y contenido del error.
 - utils.py: Se definen algunos métodos para la carga de datos, el guardado de modelo o la evaluación.
+
+
+## Resultados
+
+En el notebook models, se han probado dos modelos distintos, RandomForest y linearRegression. Los mejores resultados han sido los obtenidos por el modelo random forest:
+
+![Grafico resultados](artifacts/img/graph_randomforest.png)
+
+Y las métricas obtenidas: 
+
+| Algoritmo             | MAE     | MSE   | \( R^2 \) |
+|-----------------------|---------|-------|-----------|
+| RandomForest          | 245.33  | 187616.38|0.9357     |
 
 
